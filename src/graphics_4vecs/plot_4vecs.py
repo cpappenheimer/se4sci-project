@@ -1,6 +1,12 @@
-# TODO
 from __future__ import annotations
 
+import logging
 
-def hello():
-    print("Hello from plot")
+log = logging.getLogger("graphics_4vecs")
+
+
+def hello() -> None:
+    log.info("Hello from plot")
+
+
+# TODO

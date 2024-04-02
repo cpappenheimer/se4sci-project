@@ -1,8 +1,10 @@
 on:
     pull_request:
     push:
-  
-    jobs:
+        branches:
+        - main
+
+jobs:
         format:
             name: Format
             runs-on: ubuntu-latest

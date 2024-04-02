@@ -31,6 +31,9 @@ docs = [
 [project.urls]
 Homepage = "https://github.com/cpappenheimer/se4sci-project"
 
+[tool.pytest.ini_options]
+log_cli_level = "debug"
+
 [tool.ruff]
 select = [
   "E", "F", "W", # flake8
@@ -71,3 +74,16 @@ unfixable = [
 exclude = []
 flake8-unused-arguments.ignore-variadic-names = true
 isort.required-imports = ["from __future__ import annotations"]
+
+[tool.mypy]
+files = "src"
+#python_version = "3.9"
+strict = true
+show_error_codes = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+warn_unreachable = true
+
+# You can disable imports or control per-module/file settings here
+[[tool.mypy.overrides]]
+module = [ "numpy.*", ]
+ignore_missing_imports = true

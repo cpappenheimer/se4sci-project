@@ -4,7 +4,7 @@
 ```
 python3 -m venv venv
 . venv/bin/activate
-pip install graphics_4vecs
+pip install -e .
 ```
 
 # Running the example

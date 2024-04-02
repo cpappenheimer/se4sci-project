@@ -1,11 +1,16 @@
 from __future__ import annotations
 
+import logging
+
 import numpy as np
 
-# TODO
+log = logging.getLogger("graphics_4vecs")
 
 
-def hello():
-    print("Hello from transformations")
+def hello() -> None:
+    log.info("Hello from transformations")
     a1D = np.array([1, 2, 3, 4])
-    print(a1D)
+    log.info(a1D)
+
+
+# TODO
