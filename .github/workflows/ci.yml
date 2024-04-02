@@ -1,1 +1,15 @@
-# TODO
+on:
+    pull_request:
+    push:
+  
+    jobs:
+        format:
+            name: Format
+            runs-on: ubuntu-latest
+            steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-python@v4
+              with:
+                # Latest minor release of Python 3
+                python-version: "3.x"
+            - uses: pre-commit/action@v3.0.0

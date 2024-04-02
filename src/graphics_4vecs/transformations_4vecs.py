@@ -1,6 +1,9 @@
+from __future__ import annotations
+
 import numpy as np
 
 # TODO
+
 
 def hello():
     print("Hello from transformations")
