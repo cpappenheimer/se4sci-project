@@ -3,6 +3,7 @@ on:
     push:
         branches:
         - main
+        - pappenheimer_ci
 
 jobs:
         format:
