@@ -16,3 +16,16 @@ jobs:
                 # Latest minor release of Python 3
                 python-version: "3.x"
             - uses: pre-commit/action@v3.0.0
+
+        tests:
+            name: Run tests
+            runs-on: ubuntu-latest
+            steps:
+              - uses: actions/checkout@v3
+              - uses: actions/setup-python@v4
+                with:
+                  # Latest minor release of Python 3
+                  python-version: "3.x"
+              - uses: excitedleigh/setup-nox@v2.0.0
+              - name: Run tests
+                run: nox -s tests
