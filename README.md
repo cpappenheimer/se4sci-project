@@ -12,4 +12,14 @@ pip install -e .
 python src/examples/example.py
 ```
 
+# Running tests
+```
+nox -s tests
+```
+
+# Running tests with log output
+```
+nox -s tests -- -rP
+```
+
 TODO
