@@ -26,6 +26,6 @@ jobs:
                 with:
                   # Latest minor release of Python 3
                   python-version: "3.x"
-              - uses: excitedleigh/setup-nox@v2.0.0
+              - uses: excitedleigh/setup-nox@v2.1.0
               - name: Run tests
                 run: nox -s tests
