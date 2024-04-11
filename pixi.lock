@@ -5280,9 +5280,9 @@ packages:
   timestamp: 1710169869298
 - kind: pypi
   name: graphics-4vecs
-  version: 0.1.dev17+g05c625a.d20240411
+  version: 0.1.dev21+gab2d91c
   path: .
-  sha256: ed89aa92eebffce02b8dffb4042f5b405a3f1ff6d53da586ffbce6ea61d6c05c
+  sha256: 0038bdfb7463207ce20012a7c32aeab21126e5274c49fb87199c966b52103c57
   requires_dist:
   - pytest ; extra == 'test'
   editable: true
