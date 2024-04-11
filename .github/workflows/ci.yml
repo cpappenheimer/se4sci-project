@@ -25,5 +25,7 @@ jobs:
               - uses: prefix-dev/setup-pixi@v0.5.1
                 with:
                   manifest-path: pyproject.toml
+                  environments: >- 
+                      test
               - name: Run tests with pixi
                 run: pixi run -e test pytest
