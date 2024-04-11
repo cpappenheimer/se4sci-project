@@ -82,7 +82,7 @@ warn_unreachable = true
 
 # You can disable imports or control per-module/file settings here
 [[tool.mypy.overrides]]
-module = [ "numpy.*", "awkward.*", "uproot.*"]
+module = [ "numpy.*", "awkward.*", "uproot.*", "ROOT.*"]
 ignore_missing_imports = true
 
 [tool.pixi.project]
@@ -102,6 +102,7 @@ root = ">=6.28.4,<6.31"
 numpy = ">=1.26.4,<1.27"
 pandas = ">=2.2.2,<2.3"
 uproot = ">=5.3.2,<5.4"
+pandas-stubs = ">=2.2.1.240316,<2.2.2"
 
 [tool.pixi.tasks]
 
