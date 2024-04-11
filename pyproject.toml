@@ -21,9 +21,7 @@ dependencies = [
 
 [project.optional-dependencies]
 test = [
-  "pytest",
 ]
-# TODO
 docs = [
 ]
 
@@ -106,3 +104,9 @@ pandas = ">=2.2.2,<2.3"
 uproot = ">=5.3.2,<5.4"
 
 [tool.pixi.tasks]
+
+[tool.pixi.feature.test.dependencies]
+pytest = ">=7.2.0,<8.2"
+
+[tool.pixi.feature.test.tasks]
+run_tests = "pytest"

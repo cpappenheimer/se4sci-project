@@ -12,12 +12,12 @@ pre-commit run -a
 
 # Running tests
 ```
-pixi run -e test pytest
+pixi run run_tests
 ```
 
 # Running tests with log output
 ```
-pixi run -e test pytest -rP
+pixi run run_tests -rP
 ```
 
 TODO
