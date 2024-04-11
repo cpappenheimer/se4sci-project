@@ -17,14 +17,11 @@ authors = [
 ]
 
 dependencies = [
-  "numpy"
 ]
 
 [project.optional-dependencies]
 test = [
-  "pytest",
 ]
-# TODO
 docs = [
 ]
 
@@ -85,5 +82,31 @@ warn_unreachable = true
 
 # You can disable imports or control per-module/file settings here
 [[tool.mypy.overrides]]
-module = [ "numpy.*", ]
+module = [ "numpy.*", "awkward.*", "uproot.*"]
 ignore_missing_imports = true
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64", "osx-64"]
+
+[tool.pixi.pypi-dependencies]
+graphics_4vecs = { path = ".", editable = true }
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+docs = { features = ["docs"], solve-group = "default" }
+test = { features = ["test"], solve-group = "default" }
+
+[tool.pixi.dependencies]
+root = ">=6.28.4,<6.31"
+numpy = ">=1.26.4,<1.27"
+pandas = ">=2.2.2,<2.3"
+uproot = ">=5.3.2,<5.4"
+
+[tool.pixi.tasks]
+
+[tool.pixi.feature.test.dependencies]
+pytest = ">=7.2.0,<8.2"
+
+[tool.pixi.feature.test.tasks]
+run_tests = "pytest"

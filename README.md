@@ -1,25 +1,23 @@
 # se4sci-project
 
-# Installing the package in a virtual environment
-```
-python3 -m venv venv
-. venv/bin/activate
-pip install -e .
-```
-
 # Running the example
 ```
-python src/examples/example.py
+pixi run python src/examples/example.py --file <path to input data file> --tree-name <name of tree>
+```
+
+# Running pre-commit
+```
+pre-commit run -a
 ```
 
 # Running tests
 ```
-nox -s tests
+pixi run run_tests
 ```
 
 # Running tests with log output
 ```
-nox -s tests -- -rP
+pixi run run_tests -rP
 ```
 
 TODO
