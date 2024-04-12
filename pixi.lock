@@ -5289,9 +5289,9 @@ packages:
   timestamp: 1710169869298
 - kind: pypi
   name: graphics-4vecs
-  version: 0.1.dev22+g3c12e49.d20240411
+  version: 0.1.dev19+g95e0d2f.d20240412
   path: .
-  sha256: dc76c05a4c5f19aba6a5cf036adb00aefa5e62c3d0db1fce1e6821a41d8b7f31
+  sha256: 56c06a7a14d1b815c5dccb0fdde3eabd425d951b010e11c19cb17103a89ad903
   editable: true
 - kind: conda
   name: graphite2

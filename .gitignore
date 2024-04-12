@@ -160,6 +160,9 @@ cython_debug/
 #.idea
 
 src/graphics_4vecs/version.py
+
 # pixi environments
 .pixi
 *.egg-info
+
+*.csv
