@@ -80,7 +80,7 @@ def main() -> None:
 
     log.info("Performing Lorentz transformation")
 
-    final_data = {
+    final_data: dict[str, list[float]] = {
         "K_E": [],
         "K_px": [],
         "K_py": [],
