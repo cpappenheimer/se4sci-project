@@ -110,3 +110,13 @@ pytest = ">=7.2.0,<8.2"
 
 [tool.pixi.feature.test.tasks]
 run_tests = "pytest"
+
+[tool.pixi.feature.docs.dependencies]
+furo = ">=2024.1.29,<2024.2"
+sphinx = ">=7.3.5,<7.4"
+myst-parser = ">=2.0.0,<2.1"
+sphinx-copybutton = ">=0.5.2,<0.6"
+
+[tool.pixi.feature.docs.tasks]
+build_docs = "sphinx-build -M html docs/source docs/build"
+preview_docs = { cmd = "python -m http.server 8000 -d docs/build/html", depends_on = ["build_docs"]}
