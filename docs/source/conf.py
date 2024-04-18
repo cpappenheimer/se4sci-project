@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -10,16 +12,15 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.abspath('../../src/')))
 
 
 # -- Project information -----------------------------------------------------
-
-project = 'Graphics 4-vecs'
-copyright = '2024, Cheryl Pappenheimer, Mitanshu Thakore, Lael Verace'
-author = 'Cheryl Pappenheimer, Mitanshu Thakore, Lael Verace'
+project = "Graphics 4-vecs"
+copyright = "2024, Cheryl Pappenheimer, Mitanshu Thakore, Lael Verace"
+author = "Cheryl Pappenheimer, Mitanshu Thakore, Lael Verace"
 
 
 # -- General configuration ---------------------------------------------------
@@ -32,11 +33,14 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
-    "sphinx_copybutton"
+    "sphinx_copybutton",
+    "sphinx.ext.autosummary",
+    "numpydoc"
 ]
+autosummary_generate = True
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -49,9 +53,9 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'furo'
+html_theme = "furo"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]

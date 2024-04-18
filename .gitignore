@@ -166,3 +166,4 @@ src/graphics_4vecs/version.py
 *.egg-info
 
 *.csv
+docs/source/generated/*

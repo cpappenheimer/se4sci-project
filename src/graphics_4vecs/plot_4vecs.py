@@ -44,7 +44,7 @@ def f(x: float) -> float:
     >>> y = f(2.0)
     """
 
-    return x*2
+    return x * 2
 
 
 # TODO

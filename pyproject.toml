@@ -116,6 +116,7 @@ furo = ">=2024.1.29,<2024.2"
 sphinx = ">=7.3.5,<7.4"
 myst-parser = ">=2.0.0,<2.1"
 sphinx-copybutton = ">=0.5.2,<0.6"
+numpydoc = ">=1.7.0,<1.8"
 
 [tool.pixi.feature.docs.tasks]
 build_docs = "sphinx-build -M html docs/source docs/build"

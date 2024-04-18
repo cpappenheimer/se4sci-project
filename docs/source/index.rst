@@ -9,6 +9,8 @@ Welcome to Graphics 4-vecs's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   
+   api
 
 TEST
 ====
