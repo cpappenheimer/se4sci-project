@@ -1,8 +1,8 @@
 # se4sci-project
 
-[![Actions Status][actions-badge]][actions-link]
+[![CI](https://github.com/cpappenheimer/se4sci-project/actions/workflows/ci.yml/badge.svg)](https://github.com/cpappenheimer/se4sci-project/actions/workflows/ci.yml)
 
-[API documentation](se4sci-project.readthedocs.io)
+[API documentation](https://se4sci-project.readthedocs.io)
 
 # Set up
 ## Install pixi on macOS or Linux
