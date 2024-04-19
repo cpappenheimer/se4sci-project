@@ -23,7 +23,11 @@ dependencies = [
 test = [
 ]
 docs = [
-]
+  "sphinx >=7.3.5,<7.4",
+  "myst-parser >=2.0.0,<2.1",
+  "sphinx-copybutton >=0.5.2,<0.6",
+  "sphinx-rtd-theme >=2.0.0,<2.1"
+] # these have to be here instead of in the pixi docs env to work with readthedocs
 
 [project.urls]
 Homepage = "https://github.com/cpappenheimer/se4sci-project"
@@ -112,9 +116,6 @@ pytest = ">=7.2.0,<8.2"
 run_tests = "pytest"
 
 [tool.pixi.feature.docs.dependencies]
-sphinx = ">=7.3.5,<7.4"
-sphinx-copybutton = ">=0.5.2,<0.6"
-sphinx-rtd-theme = ">=2.0.0,<2.1"
 
 [tool.pixi.feature.docs.tasks]
 build_docs = "sphinx-build -M html docs/source docs/build"
