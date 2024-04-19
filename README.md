@@ -1,5 +1,9 @@
 # se4sci-project
 
+[![Actions Status][actions-badge]][actions-link]
+
+[API documentation](se4sci-project.readthedocs.io)
+
 # Set up
 ## Install pixi on macOS or Linux
 ```
