@@ -167,3 +167,4 @@ src/graphics_4vecs/version.py
 
 *.csv
 docs/source/generated/*
+docs/source/_autosummary/*
