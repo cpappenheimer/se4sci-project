@@ -113,7 +113,6 @@ run_tests = "pytest"
 
 [tool.pixi.feature.docs.dependencies]
 sphinx = ">=7.3.5,<7.4"
-myst-parser = ">=2.0.0,<2.1"
 sphinx-copybutton = ">=0.5.2,<0.6"
 sphinx-rtd-theme = ">=2.0.0,<2.1"
 

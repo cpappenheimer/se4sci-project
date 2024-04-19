@@ -11,7 +11,6 @@ python:
       path: .
       extra_requirements:
         - docs
-        - myst-parser
 
 sphinx:
   configuration: docs/source/conf.py
