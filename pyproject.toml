@@ -17,7 +17,7 @@ authors = [
 ]
 
 dependencies = [
-  "manim >=0.17.3,<0.18.1"
+  "manim"
 ]
 
 [project.optional-dependencies]
