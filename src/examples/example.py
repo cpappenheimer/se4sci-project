@@ -1,18 +1,30 @@
 from __future__ import annotations
 
-import argparse
 import logging
+import sys
+from typing import Any
 
 import awkward
+import numpy as np
+import numpy.typing as npt
 import pandas as pd
 import uproot
-from ROOT import TLorentzVector
 
 logging.basicConfig(level="INFO")  # Global setting
 log = logging.getLogger("graphics_4vecs")
 
 
 def read_root_file(root_file_path: str, tree_name: str) -> awkward.highlevel.Array:
+    """
+    Read a ROOT file and extract branch arrays.
+
+    Args:
+        root_file_path (str): Path to the ROOT file.
+        tree_name (str): Name of the tree in the ROOT file.
+
+    Returns:
+        dict: Dictionary containing branch arrays.
+    """
     root_file = uproot.open(root_file_path)
     tree = root_file[tree_name]
     branches = tree.keys()
@@ -26,138 +38,145 @@ def read_root_file(root_file_path: str, tree_name: str) -> awkward.highlevel.Arr
 
     return branch_arrays
 
+if len(sys.argv) != 3:
+    root_file_path = "/se4sci-project/zenodo_version_D02Kpipipi_td_1000000events.root"
+    tree_name = "DalitzEventList"
+else:
+    root_file_path = sys.argv[1]
+    tree_name = sys.argv[2]
 
-def main() -> None:
-    # parse user args
-    parser = argparse.ArgumentParser("K3Pi Example")
-    parser.add_argument("--file", help="Path to file with input data", type=str)
-    parser.add_argument("--tree-name", help="Name of tree in ntuple", type=str)
-    parser.add_argument("--num-events", help="Num of events to transform", type=int)
-    args = parser.parse_args()
-    file = args.file
-    tree_name = args.tree_name
-    num_events = args.num_events
+branches = read_root_file(root_file_path, tree_name)
 
-    # read data from file
-    branches = read_root_file(file, tree_name)
-    K_E = branches["_1_Kplus_E"]
-    K_Px = branches["_1_Kplus_Px"]
-    K_Py = branches["_1_Kplus_Py"]
-    K_Pz = branches["_1_Kplus_Pz"]
-    pi_minus_2_E = branches["_2_piminus_E"]
-    pi_minus_2_Px = branches["_2_piminus_Px"]
-    pi_minus_2_Py = branches["_2_piminus_Py"]
-    pi_minus_2_Pz = branches["_2_piminus_Pz"]
-    pi_minus_3_E = branches["_3_piminus_E"]
-    pi_minus_3_Px = branches["_3_piminus_Px"]
-    pi_minus_3_Py = branches["_3_piminus_Py"]
-    pi_minus_3_Pz = branches["_3_piminus_Pz"]
-    pi_plus_4_E = branches["_4_piplus_E"]
-    pi_plus_4_Px = branches["_4_piplus_Px"]
-    pi_plus_4_Py = branches["_4_piplus_Py"]
-    pi_plus_4_Pz = branches["_4_piplus_Pz"]
-    # initial_data = {
-    #     "K_E": K_E,
-    #     "K_px": K_Px,
-    #     "K_py": K_Py,
-    #     "K_pz": K_Pz,
-    #     "pi_minus_2_E": pi_minus_2_E,
-    #     "pi_minus_2_px": pi_minus_2_Px,
-    #     "pi_minus_2_py": pi_minus_2_Py,
-    #     "pi_minus_2_pz": pi_minus_2_Pz,
-    #     "pi_minus_3_E": pi_minus_3_E,
-    #     "pi_minus_3_px": pi_minus_3_Px,
-    #     "pi_minus_3_py": pi_minus_3_Py,
-    #     "pi_minus_3_pz": pi_minus_3_Pz,
-    #     "pi_plus_4_E": pi_plus_4_E,
-    #     "pi_plus_4_px": pi_plus_4_Px,
-    #     "pi_plus_4_py": pi_plus_4_Py,
-    #     "pi_plus_4_pz": pi_plus_4_Pz,
-    # }
+if not branches:
+    log = logging.getLogger("Error: Empty branches.")
+    exit()
 
-    log.info("Performing Lorentz transformation")
+rest_frame: dict[str, list[float]] = {
+    "K_E": branches.get("_1_Kplus_E", []),
+    "K_px": branches.get("_1_Kplus_Px", []),
+    "K_py": branches.get("_1_Kplus_Py", []),
+    "K_pz": branches.get("_1_Kplus_Pz", []),
+    "pi_minus_2_E": branches.get("_2_piminus_E", []),
+    "pi_minus_2_px": branches.get("_2_piminus_Px", []),
+    "pi_minus_2_py": branches.get("_2_piminus_Py", []),
+    "pi_minus_2_pz": branches.get("_2_piminus_Pz", []),
+    "pi_minus_3_E": branches.get("_3_piminus_E", []),
+    "pi_minus_3_px": branches.get("_3_piminus_Px", []),
+    "pi_minus_3_py": branches.get("_3_piminus_Py", []),
+    "pi_minus_3_pz": branches.get("_3_piminus_Pz", []),
+    "pi_plus_4_E": branches.get("_4_piplus_E", []),
+    "pi_plus_4_px": branches.get("_4_piplus_Px", []),
+    "pi_plus_4_py": branches.get("_4_piplus_Py", []),
+    "pi_plus_4_pz": branches.get("_4_piplus_Pz", []),
+}
 
-    final_data: dict[str, list[float]] = {
-        "K_E": [],
-        "K_px": [],
-        "K_py": [],
-        "K_pz": [],
-        "pi_minus_2_E": [],
-        "pi_minus_2_px": [],
-        "pi_minus_2_py": [],
-        "pi_minus_2_pz": [],
-        "pi_minus_3_E": [],
-        "pi_minus_3_px": [],
-        "pi_minus_3_py": [],
-        "pi_minus_3_pz": [],
-        "pi_plus_4_E": [],
-        "pi_plus_4_px": [],
-        "pi_plus_4_py": [],
-        "pi_plus_4_pz": [],
-    }
-
-    for i in range(num_events):
-        k_plus = TLorentzVector()
-        k_plus.SetPxPyPzE(K_Px[i], K_Py[i], K_Pz[i], K_E[i])
-
-        pi_minus_2 = TLorentzVector()
-        pi_minus_2.SetPxPyPzE(
-            pi_minus_2_Px[i], pi_minus_2_Py[i], pi_minus_2_Pz[i], pi_minus_2_E[i]
-        )
-
-        pi_minus_3 = TLorentzVector()
-        pi_minus_3.SetPxPyPzE(
-            pi_minus_3_Px[i], pi_minus_3_Py[i], pi_minus_3_Pz[i], pi_minus_3_E[i]
-        )
-
-        pi_plus_4 = TLorentzVector()
-        pi_plus_4.SetPxPyPzE(
-            pi_plus_4_Px[i], pi_plus_4_Py[i], pi_plus_4_Pz[i], pi_plus_4_E[i]
-        )
-
-        # Boost k and pi- (2) to kpi- rest frame
-        kpi_boost = (k_plus + pi_minus_2).BoostVector()
-        boosted_k_plus = TLorentzVector(k_plus)
-        boosted_k_plus.Boost(kpi_boost)
-        boosted_pi_minus_2 = TLorentzVector(pi_minus_2)
-        boosted_pi_minus_2.Boost(kpi_boost)
-
-        # Boost pi- (3) and pi+ to pi-pi+ rest frame
-        pipi_boost = (pi_minus_3 + pi_plus_4).BoostVector()
-        boosted_pi_minus_3 = TLorentzVector(pi_minus_3)
-        boosted_pi_minus_3.Boost(pipi_boost)
-        boosted_pi_plus_4 = TLorentzVector(pi_plus_4)
-        boosted_pi_plus_4.Boost(pipi_boost)
-
-        final_data["K_E"].append(boosted_k_plus.E())
-        final_data["K_px"].append(boosted_k_plus.Px())
-        final_data["K_py"].append(boosted_k_plus.Py())
-        final_data["K_pz"].append(boosted_k_plus.Pz())
-        final_data["pi_minus_2_E"].append(boosted_pi_minus_2.E())
-        final_data["pi_minus_2_px"].append(boosted_pi_minus_2.Px())
-        final_data["pi_minus_2_py"].append(boosted_pi_minus_2.Py())
-        final_data["pi_minus_2_pz"].append(boosted_pi_minus_2.Pz())
-        final_data["pi_minus_3_E"].append(boosted_pi_minus_3.E())
-        final_data["pi_minus_3_px"].append(boosted_pi_minus_3.Px())
-        final_data["pi_minus_3_py"].append(boosted_pi_minus_3.Py())
-        final_data["pi_minus_3_pz"].append(boosted_pi_minus_3.Pz())
-        final_data["pi_plus_4_E"].append(boosted_pi_plus_4.E())
-        final_data["pi_plus_4_px"].append(boosted_pi_plus_4.Px())
-        final_data["pi_plus_4_py"].append(boosted_pi_plus_4.Py())
-        final_data["pi_plus_4_pz"].append(boosted_pi_plus_4.Pz())
-
-        # Convert data to pandas DataFrames
-        # initial_df = pd.DataFrame(initial_data)
-        final_df = pd.DataFrame(final_data)
-
-        # Write DataFrames to CSV files
-        # initial_df.to_csv('initial_branches.csv', index=False)
-        final_df.to_csv("final_branches.csv", index=False)
-    # end loop
+rest_frame_df = pd.DataFrame(rest_frame)
+rest_frame_df.to_csv("rest_frame_data.csv", index=False)
 
 
-# end main
+def lorentz_transform(
+    E: float, px: float, py: float, pz: float, v: float
+) -> npt.NDArray[Any]:
+    """
+    Perform Lorentz transformation on four-momenta.
+
+    Args:
+        E (float): Energy.
+        px (float): x-component of momentum.
+        py (float): y-component of momentum.
+        pz (float): z-component of momentum.
+        v (float): Velocity of the parent particle in meters per second.
+
+    Returns:
+        np.array: Transformed four-momenta.
+    """
+    p = np.array([E, px, py, pz])
+    beta = v / 299792458  # Speed of light in meters per second
+    gamma = 1 / np.sqrt(1 - beta**2)
+
+    lambda_matrix = np.array(
+        [
+            [gamma, -gamma * beta, 0, 0],
+            [-gamma * beta, gamma, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1],
+        ]
+    )
+    return np.dot(lambda_matrix, p)  # type: ignore[no-any-return]
 
 
-if __name__ == "__main__":
-    main()
+log = logging.getLogger("Performing Lorentz transformation")
+
+lab_frame: dict[str, list[float]] = {
+    "K_E": [],
+    "K_px": [],
+    "K_py": [],
+    "K_pz": [],
+    "pi_minus_2_E": [],
+    "pi_minus_2_px": [],
+    "pi_minus_2_py": [],
+    "pi_minus_2_pz": [],
+    "pi_minus_3_E": [],
+    "pi_minus_3_px": [],
+    "pi_minus_3_py": [],
+    "pi_minus_3_pz": [],
+    "pi_plus_4_E": [],
+    "pi_plus_4_px": [],
+    "pi_plus_4_py": [],
+    "pi_plus_4_pz": [],
+}
+
+v = 0.5 * 299792458  # Example velocity: half the speed of light
+
+for i in range(len(rest_frame["K_E"])):
+    P_d1_lab = lorentz_transform(
+        rest_frame["K_E"][i],
+        rest_frame["K_px"][i],
+        rest_frame["K_py"][i],
+        rest_frame["K_pz"][i],
+        v,
+    )
+    P_d2_lab = lorentz_transform(
+        rest_frame["pi_minus_2_E"][i],
+        rest_frame["pi_minus_2_px"][i],
+        rest_frame["pi_minus_2_py"][i],
+        rest_frame["pi_minus_2_pz"][i],
+        v,
+    )
+    P_d3_lab = lorentz_transform(
+        rest_frame["pi_minus_3_E"][i],
+        rest_frame["pi_minus_3_px"][i],
+        rest_frame["pi_minus_3_py"][i],
+        rest_frame["pi_minus_3_pz"][i],
+        v,
+    )
+    P_d4_lab = lorentz_transform(
+        rest_frame["pi_plus_4_E"][i],
+        rest_frame["pi_plus_4_px"][i],
+        rest_frame["pi_plus_4_py"][i],
+        rest_frame["pi_plus_4_pz"][i],
+        v,
+    )
+
+    lab_frame["K_E"].append(P_d1_lab[0])
+    lab_frame["K_px"].append(P_d1_lab[1])
+    lab_frame["K_py"].append(P_d1_lab[2])
+    lab_frame["K_pz"].append(P_d1_lab[3])
+
+    lab_frame["pi_minus_2_E"].append(P_d2_lab[0])
+    lab_frame["pi_minus_2_px"].append(P_d2_lab[1])
+    lab_frame["pi_minus_2_py"].append(P_d2_lab[2])
+    lab_frame["pi_minus_2_pz"].append(P_d2_lab[3])
+
+    lab_frame["pi_minus_3_E"].append(P_d3_lab[0])
+    lab_frame["pi_minus_3_px"].append(P_d3_lab[1])
+    lab_frame["pi_minus_3_py"].append(P_d3_lab[2])
+    lab_frame["pi_minus_3_pz"].append(P_d3_lab[3])
+
+    lab_frame["pi_plus_4_E"].append(P_d4_lab[0])
+    lab_frame["pi_plus_4_px"].append(P_d4_lab[1])
+    lab_frame["pi_plus_4_py"].append(P_d4_lab[2])
+    lab_frame["pi_plus_4_pz"].append(P_d4_lab[3])
+
+lab_frame_df = pd.DataFrame(lab_frame)
+lab_frame_df.to_csv("lab_frame_data.csv", index=False)

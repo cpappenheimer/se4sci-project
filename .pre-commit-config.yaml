@@ -25,6 +25,7 @@ repos:
           (?x)^(
               docs/source/conf.py|
               src/graphics_4vecs/plot_4vecs.py
+              tests/test_transformations_4vecs.py
           )$
         args: ["--fix", "--show-fixes"]
   - repo: https://github.com/pre-commit/mirrors-mypy
