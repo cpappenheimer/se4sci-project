@@ -6893,10 +6893,11 @@ packages:
   timestamp: 1701110534084
 - kind: pypi
   name: graphics-4vecs
-  version: 0.1.dev32+g02090d1.d20240422
+  version: 0.1.dev26+g36caf8d.d20240422
   path: .
-  sha256: deb7c3488611f5249f6fb67cf1426b087b2adcae263b5240201ba0939b1c892f
+  sha256: 49d9c9da53c8435450384e759cda49f8086747a83e247f311532f51401dc8db3
   requires_dist:
+  - manim ; extra == 'docs'
   - myst-parser <2.1, >=2.0.0 ; extra == 'docs'
   - sphinx-copybutton <0.6, >=0.5.2 ; extra == 'docs'
   - sphinx-rtd-theme <2.1, >=2.0.0 ; extra == 'docs'
