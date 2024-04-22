@@ -8,9 +8,6 @@ import pandas as pd
 import uproot
 from ROOT import TLorentzVector
 
-import graphics_4vecs.plot_4vecs as p
-import graphics_4vecs.transformations_4vecs as t
-
 logging.basicConfig(level="INFO")  # Global setting
 log = logging.getLogger("graphics_4vecs")
 
@@ -158,14 +155,8 @@ def main() -> None:
         final_df.to_csv("final_branches.csv", index=False)
     # end loop
 
-    log.info("Hello World!")
-    t.hello()
-    p.hello()
-
 
 # end main
-
-# TODO
 
 
 if __name__ == "__main__":

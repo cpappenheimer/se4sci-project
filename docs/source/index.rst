@@ -12,10 +12,6 @@ Welcome to Graphics 4-vecs's documentation!
 
    api
 
-TEST
-====
-TODO
-
 Indices and tables
 ==================
 

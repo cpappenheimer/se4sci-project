@@ -37,4 +37,8 @@ pixi run run_tests
 pixi run run_tests -rP
 ```
 
-TODO
+# Preview the documentation locally
+```
+# Launches the preview at http://localhost:8000/ - use Ctrl-C to quit
+pixi run preview_docs
+```
