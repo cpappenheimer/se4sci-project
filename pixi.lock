@@ -785,10 +785,13 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.2.13-hd590300_5.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.5-hfc55251_0.conda
       - pypi: https://files.pythonhosted.org/packages/32/34/d4e1c02d3bee589efb5dfa17f88ea08bdb3e3eac12bc475462aec52ed223/alabaster-0.7.16-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/17/be/a5d2c16317c6a890502725970589ae7f06cfc66b2e6916ba0a86973403c8/cairocffi-1.6.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/26/87/f238c0670b94533ac0353a4e2a1a771a0cc73277b88bff23d3ae35a256c1/docutils-0.20.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ff/62/85c4c919272577931d407be5ba5d71c20f0b616d31a0befe0ae45bb79abd/imagesize-1.4.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/e5/3c/fe85f19699a7b40c8f9ce8ecee7e269b9b3c94099306df6f9891bdefeedd/mdit_py_plugins-0.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/1d/f6/6d61a023d758f488e36638076e8a4ec4447a2cdf86938cf6c60cf1c860e6/myst_parser-2.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/80/b5/2582e9d63b30c07a6c230293aaaca43584446959c4131c1ee4dde4b3f574/pangocairocffi-0.7.0.tar.gz
+      - pypi: https://files.pythonhosted.org/packages/cc/a7/b832d1366e49db29ba99d93776d1dfff4782abb7ff0a8f29e2ae8e13970d/pangocffi-0.12.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/ed/dc/c02e01294f7265e63a7315fe086dd1df7dacb9f840a804da846b96d01b96/snowballstemmer-2.2.0-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b4/fa/130c32ed94cf270e3d0b9ded16fb7b2c8fea86fa7263c29a696a30c1dde7/sphinx-7.3.7-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9e/48/1ea60e74949eecb12cdd6ac43987f9fd331156388dcc2319b45e2ebb81bf/sphinx_copybutton-0.5.2-py3-none-any.whl
@@ -995,10 +998,13 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zlib-1.2.13-h8a1eda9_5.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.5-h829000d_0.conda
       - pypi: https://files.pythonhosted.org/packages/32/34/d4e1c02d3bee589efb5dfa17f88ea08bdb3e3eac12bc475462aec52ed223/alabaster-0.7.16-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/17/be/a5d2c16317c6a890502725970589ae7f06cfc66b2e6916ba0a86973403c8/cairocffi-1.6.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/26/87/f238c0670b94533ac0353a4e2a1a771a0cc73277b88bff23d3ae35a256c1/docutils-0.20.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ff/62/85c4c919272577931d407be5ba5d71c20f0b616d31a0befe0ae45bb79abd/imagesize-1.4.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/e5/3c/fe85f19699a7b40c8f9ce8ecee7e269b9b3c94099306df6f9891bdefeedd/mdit_py_plugins-0.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/1d/f6/6d61a023d758f488e36638076e8a4ec4447a2cdf86938cf6c60cf1c860e6/myst_parser-2.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/80/b5/2582e9d63b30c07a6c230293aaaca43584446959c4131c1ee4dde4b3f574/pangocairocffi-0.7.0.tar.gz
+      - pypi: https://files.pythonhosted.org/packages/cc/a7/b832d1366e49db29ba99d93776d1dfff4782abb7ff0a8f29e2ae8e13970d/pangocffi-0.12.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/ed/dc/c02e01294f7265e63a7315fe086dd1df7dacb9f840a804da846b96d01b96/snowballstemmer-2.2.0-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b4/fa/130c32ed94cf270e3d0b9ded16fb7b2c8fea86fa7263c29a696a30c1dde7/sphinx-7.3.7-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9e/48/1ea60e74949eecb12cdd6ac43987f9fd331156388dcc2319b45e2ebb81bf/sphinx_copybutton-0.5.2-py3-none-any.whl
@@ -1196,10 +1202,13 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zlib-1.2.13-h53f4e23_5.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.5-h4f39d0f_0.conda
       - pypi: https://files.pythonhosted.org/packages/32/34/d4e1c02d3bee589efb5dfa17f88ea08bdb3e3eac12bc475462aec52ed223/alabaster-0.7.16-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/17/be/a5d2c16317c6a890502725970589ae7f06cfc66b2e6916ba0a86973403c8/cairocffi-1.6.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/26/87/f238c0670b94533ac0353a4e2a1a771a0cc73277b88bff23d3ae35a256c1/docutils-0.20.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ff/62/85c4c919272577931d407be5ba5d71c20f0b616d31a0befe0ae45bb79abd/imagesize-1.4.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/e5/3c/fe85f19699a7b40c8f9ce8ecee7e269b9b3c94099306df6f9891bdefeedd/mdit_py_plugins-0.4.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/1d/f6/6d61a023d758f488e36638076e8a4ec4447a2cdf86938cf6c60cf1c860e6/myst_parser-2.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/80/b5/2582e9d63b30c07a6c230293aaaca43584446959c4131c1ee4dde4b3f574/pangocairocffi-0.7.0.tar.gz
+      - pypi: https://files.pythonhosted.org/packages/cc/a7/b832d1366e49db29ba99d93776d1dfff4782abb7ff0a8f29e2ae8e13970d/pangocffi-0.12.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/ed/dc/c02e01294f7265e63a7315fe086dd1df7dacb9f840a804da846b96d01b96/snowballstemmer-2.2.0-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b4/fa/130c32ed94cf270e3d0b9ded16fb7b2c8fea86fa7263c29a696a30c1dde7/sphinx-7.3.7-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9e/48/1ea60e74949eecb12cdd6ac43987f9fd331156388dcc2319b45e2ebb81bf/sphinx_copybutton-0.5.2-py3-none-any.whl
@@ -2266,6 +2275,22 @@ packages:
   license: LGPL-2.1-only or MPL-1.1
   size: 897919
   timestamp: 1697028755150
+- kind: pypi
+  name: cairocffi
+  version: 1.6.1
+  url: https://files.pythonhosted.org/packages/17/be/a5d2c16317c6a890502725970589ae7f06cfc66b2e6916ba0a86973403c8/cairocffi-1.6.1-py3-none-any.whl
+  sha256: aa78ee52b9069d7475eeac457389b6275aa92111895d78fbaa2202a52dac112e
+  requires_dist:
+  - cffi >=1.1.0
+  - sphinx ; extra == 'doc'
+  - sphinx-rtd-theme ; extra == 'doc'
+  - pytest ; extra == 'test'
+  - flake8 ; extra == 'test'
+  - isort ; extra == 'test'
+  - numpy ; extra == 'test'
+  - pikepdf ; extra == 'test'
+  - xcffib >=1.4.0 ; extra == 'xcb'
+  requires_python: '>=3.7'
 - kind: conda
   name: certifi
   version: 2024.2.2
@@ -3612,13 +3637,13 @@ packages:
   timestamp: 1701110534084
 - kind: pypi
   name: graphics-4vecs
-  version: 0.1.dev27+g5663710.d20240422
+  version: 0.1.dev28+gdb8f0e7.d20240422
   path: .
-  sha256: 628094a40df2aa31923eb4c9138340cf2ea178ca6a3d23792b7d2bec27541589
+  sha256: 4f321b0e3005cc32073d14e4891fae27e4b4c15bebfddd4cab8d12837a39f8b7
   requires_dist:
   - manim <0.18.1, >=0.17.3
-  - manimpango ; extra == 'docs'
   - myst-parser <2.1, >=2.0.0 ; extra == 'docs'
+  - pangocairocffi ; extra == 'docs'
   - sphinx-copybutton <0.6, >=0.5.2 ; extra == 'docs'
   - sphinx-rtd-theme <2.1, >=2.0.0 ; extra == 'docs'
   - sphinx <7.4, >=7.3.5 ; extra == 'docs'
@@ -6891,6 +6916,24 @@ packages:
   license: LGPL-2.1-or-later
   size: 416865
   timestamp: 1712103776625
+- kind: pypi
+  name: pangocairocffi
+  version: 0.7.0
+  url: https://files.pythonhosted.org/packages/80/b5/2582e9d63b30c07a6c230293aaaca43584446959c4131c1ee4dde4b3f574/pangocairocffi-0.7.0.tar.gz
+  sha256: 7fa437a88df45ad5e0d0538b6a7bcaaf1273f37a047fcdc8e4623fd6945048cc
+  requires_dist:
+  - cffi >=1.1.0
+  - cairocffi >=1.0.2
+  - pangocffi >=0.11.0
+  requires_python: '>=3.6'
+- kind: pypi
+  name: pangocffi
+  version: 0.12.0
+  url: https://files.pythonhosted.org/packages/cc/a7/b832d1366e49db29ba99d93776d1dfff4782abb7ff0a8f29e2ae8e13970d/pangocffi-0.12.0.tar.gz
+  sha256: ca6d62c447d43ff3fdca2ad60306ceb866911c5ea7ebf59b2381ad864f017fb5
+  requires_dist:
+  - cffi >=1.1.0
+  requires_python: '>=3.8'
 - kind: conda
   name: pcre2
   version: '10.43'

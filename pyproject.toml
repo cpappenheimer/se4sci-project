@@ -28,7 +28,7 @@ docs = [
   "myst-parser >=2.0.0,<2.1",
   "sphinx-copybutton >=0.5.2,<0.6",
   "sphinx-rtd-theme >=2.0.0,<2.1",
-  "manimpango"
+  "pangocairocffi"
 ] # these have to be here instead of in the pixi docs env to work with readthedocs
 
 [project.urls]
