@@ -13,8 +13,7 @@ brew install pixi
 ```
 
 # Running the example
-First, download the ROOT data file at:  https://drive.google.com/file/d/10Y0m5s1QCeWeGglmDWCwqQoWh7hFuerr/view?usp=sharing
-and use the tree name as 'DalitzEventList'
+First, download the ROOT data file at:  https://drive.google.com/file/d/10Y0m5s1QCeWeGglmDWCwqQoWh7hFuerr/view?usp=sharing and store it inside the parent directory (the directory where README.md is stored), and use the tree name as 'DalitzEventList'
 ```
 pixi run python src/examples/example.py --file <path to ROOT file> --tree-name <name of tree>
 ```
@@ -53,3 +52,4 @@ Next, to generate the visualization, run the command:
 ```
 manim -qh <path to plot_4vecs.py> Decay
 ```
+`-qh` can be changed to `-ql` if the user wishes to generate a lower resolution visualization that takes less time to render.
