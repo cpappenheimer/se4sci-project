@@ -4,16 +4,16 @@ import manim
 import numpy as np
 import pandas as pd
 
-###### SPECIFY DATA FILE, ANIMATION MODE, AND DECAY NUMBER HERE ######
-filename = "initial_branches.csv"
-animation_mode = "rotation"  # Choose from: picture, rotation, dynamic
-decay_num = 2
-######################################################################
-
-dataframe = pd.read_csv(filename)
-
 
 class Decay(manim.ThreeDScene):  # type: ignore[misc]
+    def __init__(self) -> None:
+        ###### SPECIFY DATA FILE, ANIMATION MODE, AND DECAY NUMBER HERE ######
+        self._filename = "initial_branches.csv"
+        self._animation_mode = "rotation"  # Choose from: picture, rotation, dynamic
+        self._decay_num = 2
+        ######################################################################
+        self._dataframe = pd.read_csv(self._filename)
+
     def construct(self) -> None:
         """
         Build Manim scene for visualization of particle events.
@@ -40,30 +40,30 @@ class Decay(manim.ThreeDScene):  # type: ignore[misc]
 
         K_vec = scaling_factor * np.array(
             [
-                dataframe["K_px"][decay_num],
-                dataframe["K_py"][decay_num],
-                dataframe["K_pz"][decay_num],
+                self._dataframe["K_px"][self._decay_num],
+                self._dataframe["K_py"][self._decay_num],
+                self._dataframe["K_pz"][self._decay_num],
             ]
         )
         pi_m2_vec = scaling_factor * np.array(
             [
-                dataframe["pi_minus_2_px"][decay_num],
-                dataframe["pi_minus_2_py"][decay_num],
-                dataframe["pi_minus_2_pz"][decay_num],
+                self._dataframe["pi_minus_2_px"][self._decay_num],
+                self._dataframe["pi_minus_2_py"][self._decay_num],
+                self._dataframe["pi_minus_2_pz"][self._decay_num],
             ]
         )
         pi_m3_vec = scaling_factor * np.array(
             [
-                dataframe["pi_minus_3_px"][decay_num],
-                dataframe["pi_minus_3_py"][decay_num],
-                dataframe["pi_minus_3_pz"][decay_num],
+                self._dataframe["pi_minus_3_px"][self._decay_num],
+                self._dataframe["pi_minus_3_py"][self._decay_num],
+                self._dataframe["pi_minus_3_pz"][self._decay_num],
             ]
         )
         pi_p4_vec = scaling_factor * np.array(
             [
-                dataframe["pi_plus_4_px"][decay_num],
-                dataframe["pi_plus_4_py"][decay_num],
-                dataframe["pi_plus_4_pz"][decay_num],
+                self._dataframe["pi_plus_4_px"][self._decay_num],
+                self._dataframe["pi_plus_4_py"][self._decay_num],
+                self._dataframe["pi_plus_4_pz"][self._decay_num],
             ]
         )
 
@@ -171,7 +171,7 @@ class Decay(manim.ThreeDScene):  # type: ignore[misc]
         pi3_arrow.set_color(manim.BLUE)
         pi4_arrow.set_color(manim.PURPLE)
 
-        if animation_mode == "picture":
+        if self._animation_mode == "picture":
             # Set camera orientation to face in direction of vector perpendicular to decay
             # Use Gram-Schmidt process to generate a vector orthogonal to dec1
             orth_vec = np.random.randn(3)
@@ -190,7 +190,7 @@ class Decay(manim.ThreeDScene):  # type: ignore[misc]
             self.add(daughter1_sphere, daughter2_sphere)
             self.add(K_arrow, pi2_arrow, pi3_arrow, pi4_arrow)
 
-        elif animation_mode == "rotation":
+        elif self._animation_mode == "rotation":
             self.set_camera_orientation(
                 phi=90 * manim.DEGREES, theta=270 * manim.DEGREES
             )  # phi=90, theta=270 shows side profile with +x axis to the right
@@ -205,7 +205,7 @@ class Decay(manim.ThreeDScene):  # type: ignore[misc]
             self.wait(12)
             self.stop_ambient_camera_rotation()
 
-        elif animation_mode == "dynamic":
+        elif self._animation_mode == "dynamic":
             # Set camera orientation to face in direction of vector perpendicular to decay
             # Use Gram-Schmidt process to generate a vector orthogonal to dec1
             orth_vec = np.random.randn(3)
