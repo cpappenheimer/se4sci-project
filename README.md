@@ -13,8 +13,10 @@ brew install pixi
 ```
 
 # Running the example
+First, download the ROOT data file at:  https://drive.google.com/file/d/10Y0m5s1QCeWeGglmDWCwqQoWh7hFuerr/view?usp=sharing
+and use the tree name as 'DalitzEventList'
 ```
-pixi run python src/examples/example.py --file <path to input data file> --tree-name <name of tree> --num-events <num events to transform>
+pixi run python src/examples/example.py --file <path to ROOT file> --tree-name <name of tree>
 ```
 
 # Adding a dependency
