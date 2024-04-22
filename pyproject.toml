@@ -17,7 +17,8 @@ authors = [
 ]
 
 dependencies = [
-]
+  "manim >=0.17.3,<0.18.1"
+] # this has to be here instead of in the pixi section to work with readthedocs
 
 [project.optional-dependencies]
 test = [
@@ -27,7 +28,7 @@ docs = [
   "myst-parser >=2.0.0,<2.1",
   "sphinx-copybutton >=0.5.2,<0.6",
   "sphinx-rtd-theme >=2.0.0,<2.1",
-  "manim"
+  "manimpango"
 ] # these have to be here instead of in the pixi docs env to work with readthedocs
 
 [project.urls]
@@ -103,11 +104,9 @@ docs = { features = ["docs"], solve-group = "default" }
 test = { features = ["test"], solve-group = "default" }
 
 [tool.pixi.dependencies]
-root = ">=6.28.4,<6.31"
 numpy = ">=1.26.4,<1.27"
 pandas = ">=2.2.2,<2.3"
 uproot = ">=5.3.2,<5.4"
-manim = ">=0.17.3,<0.18.1"
 
 [tool.pixi.tasks]
 
