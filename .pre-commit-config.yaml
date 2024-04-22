@@ -21,12 +21,8 @@ repos:
     rev: "v0.0.292"
     hooks:
       - id: ruff
-        exclude: |
-          (?x)^(
-              docs/source/conf.py|
-              src/graphics_4vecs/plot_4vecs.py
-              tests/test_transformations_4vecs.py
-          )$
+        exclude: "src/graphics_4vecs/plot_4vecs.py"
+        files: src
         args: ["--fix", "--show-fixes"]
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: "v1.5.1"

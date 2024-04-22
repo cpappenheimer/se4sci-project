@@ -38,6 +38,7 @@ def read_root_file(root_file_path: str, tree_name: str) -> awkward.highlevel.Arr
 
     return branch_arrays
 
+
 if len(sys.argv) != 3:
     root_file_path = "/se4sci-project/zenodo_version_D02Kpipipi_td_1000000events.root"
     tree_name = "DalitzEventList"
