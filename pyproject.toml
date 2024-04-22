@@ -17,7 +17,6 @@ authors = [
 ]
 
 dependencies = [
-  "manim"
 ]
 
 [project.optional-dependencies]
