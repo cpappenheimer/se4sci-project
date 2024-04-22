@@ -44,3 +44,12 @@ pixi run run_tests -rP
 # Launches the preview at http://localhost:8000/ - use Ctrl-C to quit
 pixi run preview_docs
 ```
+
+# Create visualizations
+First, go into `src/graphics_4vecs/plot_4vecs.py` and choose your `filename`, `animation_mode` and `decay_num` to be run.
+`filename` should direct to the .csv file generated earlier containing the decay data.
+
+Next, to generate the visualization, run the command:
+```
+manim -qh <path to plot_4vecs.py> Decay
+```
