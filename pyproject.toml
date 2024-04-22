@@ -17,6 +17,7 @@ authors = [
 ]
 
 dependencies = [
+  "manim >=0.17.3,<0.18.1"
 ]
 
 [project.optional-dependencies]
@@ -106,7 +107,6 @@ root = ">=6.28.4,<6.31"
 numpy = ">=1.26.4,<1.27"
 pandas = ">=2.2.2,<2.3"
 uproot = ">=5.3.2,<5.4"
-manim = ">=0.17.3,<0.18.1"
 
 [tool.pixi.tasks]
 
