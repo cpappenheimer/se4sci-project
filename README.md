@@ -47,7 +47,7 @@ pixi run preview_docs
 
 # Create visualizations
 First, go into `src/graphics_4vecs/plot_4vecs.py` and choose your `filename`, `animation_mode` and `decay_num`.
-`filename` should direct to the .csv file generated earlier containing the decay data.
+`filename` should direct to the .csv file generated earlier containing the decay data. `decay_num = n` will create a visualization for the n<sup>th</sup> decay in the .csv file.
 
 Next, to generate the visualization, run the command:
 ```
