@@ -5,7 +5,8 @@ import logging
 import numpy as np
 import pandas as pd
 import pytest
-
+from transformations_4vecs import lorentz_transform, read_root_file
+import os
 log = logging.getLogger("graphics_4vecs")
 
 
@@ -23,25 +24,25 @@ def tree_name():
     return "DalitzEventList"
 
 
-def read_root_file(root_file_path, tree_name):
+def test_read_root_file(root_file_path, tree_name):
     branches = read_root_file(root_file_path, tree_name)
     assert isinstance(branches, dict)
     assert branches != {}
 
 
-def lorentz_transform():
+def test_lorentz_transform():
     E = 10.0
     px = 2.0
     py = 3.0
     pz = 4.0
     v = 0.5 * 299792458
     transformed = lorentz_transform(E, px, py, pz, v)
-    expected_transformed = np.array([10.0, 0.0, 3.0, 4.0])
+    expected_transformed = np.array([10.39230485,  -3.46410162, 3.0, 4.0])
     np.testing.assert_allclose(transformed, expected_transformed)
 
 
 # To test CSV generation, we can check if the CSV files are created
-def csv_generation(root_file_path, tree_name):
+def test_csv_generation(root_file_path, tree_name):
     rest_frame = read_root_file(root_file_path, tree_name)
     if not rest_frame:
         pytest.skip("Empty branches, CSV generation skipped")
@@ -60,5 +61,3 @@ def csv_generation(root_file_path, tree_name):
         lab_frame_df.to_csv("lab_frame_data.csv", index=False)
         assert "lab_frame_data.csv" in os.listdir()
 
-
-# TODO
