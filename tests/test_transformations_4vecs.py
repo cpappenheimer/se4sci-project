@@ -7,6 +7,7 @@ import pandas as pd
 import pytest
 from transformations_4vecs import lorentz_transform, read_root_file
 import os
+
 log = logging.getLogger("graphics_4vecs")
 
 
@@ -37,7 +38,7 @@ def test_lorentz_transform():
     pz = 4.0
     v = 0.5 * 299792458
     transformed = lorentz_transform(E, px, py, pz, v)
-    expected_transformed = np.array([10.39230485,  -3.46410162, 3.0, 4.0])
+    expected_transformed = np.array([10.39230485, -3.46410162, 3.0, 4.0])
     np.testing.assert_allclose(transformed, expected_transformed)
 
 
@@ -60,4 +61,3 @@ def test_csv_generation(root_file_path, tree_name):
         lab_frame_df = pd.DataFrame(lab_frame)
         lab_frame_df.to_csv("lab_frame_data.csv", index=False)
         assert "lab_frame_data.csv" in os.listdir()
-
