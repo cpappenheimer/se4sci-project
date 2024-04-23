@@ -8,7 +8,7 @@ import pandas as pd
 class Decay(manim.ThreeDScene):  # type: ignore[misc]
     def __init__(self) -> None:
         ###### SPECIFY DATA FILE, ANIMATION MODE, AND DECAY NUMBER HERE ######
-        self._filename = "initial_branches.csv"
+        self._filename = "/path/to/.csv file"
         self._animation_mode = "rotation"  # Choose from: picture, rotation, dynamic
         self._decay_num = 2
         ######################################################################

@@ -15,7 +15,7 @@ def test_transformations_4vecs_hello():
 
 @pytest.fixture()
 def root_file_path():
-    return "/se4sci-project/zenodo_version_D02Kpipipi_td_1000000events.root"
+    return "zenodo_version_D02Kpipipi_td_1000000events.root"
 
 
 @pytest.fixture()

@@ -13,8 +13,9 @@ brew install pixi
 ```
 
 # Running the example
+First, download the ROOT data file at:  https://drive.google.com/file/d/10Y0m5s1QCeWeGglmDWCwqQoWh7hFuerr/view?usp=sharing and store it inside the parent directory (the directory where README.md is stored), and use the tree name as 'DalitzEventList'
 ```
-pixi run python src/examples/example.py --file <path to input data file> --tree-name <name of tree> --num-events <num events to transform>
+pixi run python src/examples/example.py --file <path to ROOT file> --tree-name <name of tree>
 ```
 
 # Adding a dependency
@@ -42,3 +43,13 @@ pixi run run_tests -rP
 # Launches the preview at http://localhost:8000/ - use Ctrl-C to quit
 pixi run preview_docs
 ```
+
+# Create visualizations
+First, go into `src/graphics_4vecs/plot_4vecs.py` and choose your `filename`, `animation_mode` and `decay_num`.
+`filename` should direct to the .csv file generated earlier containing the decay data. `decay_num = n` will create a visualization for the n<sup>th</sup> decay in the .csv file.
+
+Next, to generate the visualization, run the command:
+```
+manim -qh <path to plot_4vecs.py> Decay
+```
+`-qh` can be changed to `-ql` if the user wishes to generate a lower resolution visualization that takes less time to render.
